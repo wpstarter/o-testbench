@@ -1,14 +1,14 @@
 {
-    "name": "orchestra/testbench",
-    "description": "Laravel Testing Helper for Packages Development",
+    "name": "wpstarter/testbench",
+    "description": "WpStarter Testing Helper for Packages Development",
     "homepage": "https://packages.tools/testbench/",
-    "keywords": ["laravel", "orchestral", "orchestra-platform", "testing", "tdd", "bdd"],
+    "keywords": ["laravel", "wpstarter", "wpstarter-platform", "testing", "tdd", "bdd"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Mior Muhammad Zaki",
-            "email": "crynobone@gmail.com",
-            "homepage": "https://github.com/crynobone"
+            "name": "As247",
+            "email": "as247@wpstarter.dev",
+            "homepage": "https://github.com/as247"
         }
     ],
     "autoload-dev": {
