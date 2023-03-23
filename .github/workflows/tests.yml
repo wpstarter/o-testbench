@@ -17,10 +17,11 @@ jobs:
         php:
           - "7.3"
           - "7.4"
+          - "8.0"
+          - "8.1"
         phpunit:
           - "^8.5.21"
         dependencies:
-          - "locked"
           - "lowest"
           - "highest"
         experimental:
