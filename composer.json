@@ -1,5 +1,5 @@
 {
-    "name": "wpstarter/testbench",
+    "name": "wpstarter/o-testbench",
     "description": "WpStarter Testing Helper for Packages Development",
     "homepage": "https://packages.tools/testbench/",
     "keywords": ["laravel", "wpstarter", "wpstarter-platform", "testing", "tdd", "bdd"],
@@ -18,9 +18,9 @@
     },
     "require": {
         "php": "^7.3 || ^8.0",
-        "wpstarter/framework": "^1.4.1",
+        "wpstarter/framework": "^1.4",
         "mockery/mockery": "^1.4.4",
-        "wpstarter/testbench-core": "^1.0",
+        "wpstarter/o-testbench-core": "^1.0",
         "phpunit/phpunit": "^8.5.21 || ^9.5.10"
     },
     "extra": {
