@@ -1,11 +1,11 @@
 Laravel Testing Helper for Packages Development
 ==============
 
-Port of TestBench for WpStarter
+Testbench Component is the de-facto package that has been designed to help you write tests for your Laravel package.
 
-Before going through the rest of this documentation, please take some time to read the [Package Development](https://laravel.com/docs/8.x/packages) section of Laravel's own documentation, if you haven't done so yet.
+Before going through the rest of this documentation, please take some time to read the [Package Development](https://laravel.com/docs/packages) section of Laravel's own documentation, if you haven't done so yet.
 
-[![tests](https://github.com/orchestral/testbench/workflows/tests/badge.svg?branch=6.x)](https://github.com/orchestral/testbench/actions?query=workflow%3Atests+branch%3A6.x)
+[![Tests](https://github.com/orchestral/testbench/actions/workflows/tests.yaml/badge.svg?branch=10.x)](https://github.com/orchestral/testbench/actions/workflows/tests.yaml?query=branch%3A10.x)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/testbench/v/stable)](https://packagist.org/packages/orchestra/testbench)
 [![Total Downloads](https://poser.pugx.org/orchestra/testbench/downloads)](https://packagist.org/packages/orchestra/testbench)
 [![License](https://poser.pugx.org/orchestra/testbench/license)](https://packagist.org/packages/orchestra/testbench)

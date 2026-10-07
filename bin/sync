@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+
+$workingPath = getcwd();
+$BRANCH = '10.x';
+
+require __DIR__.'/../vendor/autoload.php';
+
+$files = new WpStarter\Filesystem\Filesystem();
+
+echo ">>>> Checkout branch {$BRANCH}".PHP_EOL;
+
+$files->copy("{$workingPath}/vendor/orchestra/testbench-core/testbench.yaml", "{$workingPath}/testbench.yaml");
+
+if ($files->exists("{$workingPath}/vendor/orchestra/testbench-core/laravel/.env")) {
+    $files->delete("{$workingPath}/vendor/orchestra/testbench-core/laravel/.env");
+}
+
+WpStarter\Support\Collection::make([
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/app/"),
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/bootstrap/"),
+])->flatten()
+->filter(static fn ($file) => is_file($file))
+->each(static function ($file) use ($files, $workingPath) {
+    $filename = "{$workingPath}/workbench".WpStarter\Support\Str::after($file, "{$workingPath}/vendor/orchestra/testbench-core/workbench");
+    $files->ensureDirectoryExists(WpStarter\Support\Str::before($filename, basename($filename)));
+    $files->copy($file, $filename);
+});
+
+WpStarter\Support\Collection::make([
+    ...$files->glob("{$workingPath}/core/workbench/bootstrap/*.php"),
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/config/"),
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/database/"),
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/lang/"),
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/routes/"),
+    ...$files->allFiles("{$workingPath}/vendor/orchestra/testbench-core/workbench/resources/"),
+])->flatten()
+->filter(static fn ($file) => is_file($file))
+->each(static function ($file) use ($files, $workingPath) {
+    $filename = "{$workingPath}/workbench".WpStarter\Support\Str::after($file, "{$workingPath}/vendor/orchestra/testbench-core/workbench");
+    $files->ensureDirectoryExists(WpStarter\Support\Str::before($filename, basename($filename)));
+    $files->copy($file, $filename);
+});

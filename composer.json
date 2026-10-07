@@ -1,45 +1,62 @@
 {
-    "name": "wpstarter/o-testbench",
-    "description": "WpStarter Testing Helper for Packages Development",
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "orchestra/testbench",
+    "description": "Laravel Testing Helper for Packages Development",
     "homepage": "https://packages.tools/testbench/",
-    "keywords": ["laravel", "wpstarter", "wpstarter-platform", "testing", "tdd", "bdd"],
+    "keywords": ["laravel", "laravel-packages", "testing", "tdd", "bdd", "dev"],
     "license": "MIT",
     "authors": [
         {
-            "name": "As247",
-            "email": "as247@wpstarter.dev",
-            "homepage": "https://github.com/as247"
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com",
+            "homepage": "https://github.com/crynobone"
         }
     ],
     "autoload-dev": {
         "psr-4": {
-            "Orchestra\\Testbench\\Tests\\": "core/tests/"
+            "Orchestra\\Testbench\\Tests\\": "vendor/orchestra/testbench-core/tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
     },
     "require": {
-        "php": "^7.3 || ^8.0",
-        "wpstarter/framework": "^1.4",
-        "mockery/mockery": "^1.4.4",
-        "wpstarter/o-testbench-core": "^1.0",
-        "phpunit/phpunit": "^8.5.21 || ^9.5.10"
-    },
-    "extra": {
-
-    },
-    "scripts": {
-        "prepare": [
-            "@composer run post-autoload-dump"
-        ],
-        "test": [
-            "@composer run prepare",
-            "@php vendor/bin/phpunit -c ./ --color"
-        ],
-        "post-autoload-dump": [
-            "@php vendor/bin/testbench package:discover --ansi"
-        ]
+        "php": "^8.2",
+        "composer-runtime-api": "^2.2",
+        "fakerphp/faker": "^1.23",
+        "laravel/framework": "^12.69.2",
+        "mockery/mockery": "^1.6.10",
+        "orchestra/testbench-core": "^10.15.0",
+        "orchestra/workbench": "^10.3.0",
+        "phpunit/phpunit": "^11.5.3|^12.0.1|^13.0.0",
+        "symfony/process": "^7.2",
+        "symfony/yaml": "^7.2",
+        "vlucas/phpdotenv": "^5.6.1"
     },
     "config": {
+        "audit": {
+            "block-insecure": false
+        },
+        "preferred-install": {
+            "orchestra/testbench-core": "source",
+            "*": "auto"
+        },
         "sort-packages": true
     },
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "test": "@php vendor/bin/phpunit -c ./ --color",
+        "sync": "@php bin/sync",
+        "ci": [
+            "@post-autoload-dump",
+            "@test"
+        ]
+    },
+    "prefer-stable": true,
     "minimum-stability": "dev"
 }
