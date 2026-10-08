@@ -1,20 +1,16 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "orchestra/testbench",
+    "name": "wpstarter/o-testbench",
     "description": "Laravel Testing Helper for Packages Development",
     "homepage": "https://packages.tools/testbench/",
     "keywords": ["laravel", "laravel-packages", "testing", "tdd", "bdd", "dev"],
     "license": "MIT",
     "authors": [
-        {
-            "name": "Mior Muhammad Zaki",
-            "email": "crynobone@gmail.com",
-            "homepage": "https://github.com/crynobone"
-        }
+
     ],
     "autoload-dev": {
         "psr-4": {
-            "Orchestra\\Testbench\\Tests\\": "vendor/orchestra/testbench-core/tests/",
+            "Orchestra\\Testbench\\Tests\\": "vendor/wpstarter/o-testbench-core/tests/",
             "Workbench\\App\\": "workbench/app/",
             "Workbench\\Database\\Factories\\": "workbench/database/factories/",
             "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
@@ -27,7 +23,7 @@
         "wpstarter/framework": "^2.1",
         "mockery/mockery": "^1.6.10",
         "wpstarter/o-testbench-core": "^2.1",
-        "orchestra/workbench": "^10.3.0",
+        "wpstarter/o-workbench": "^2.0",
         "phpunit/phpunit": "^11.5.3|^12.0.1|^13.0.0",
         "symfony/process": "^7.2",
         "symfony/yaml": "^7.2",
@@ -38,7 +34,7 @@
             "block-insecure": false
         },
         "preferred-install": {
-            "orchestra/testbench-core": "source",
+            "wpstarter/o-testbench-core": "source",
             "*": "auto"
         },
         "sort-packages": true
